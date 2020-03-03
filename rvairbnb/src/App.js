@@ -7,7 +7,7 @@ import HomePage from "./components/HomePage";
 import LandOwnerLogin from './components/LandOwnerLogin';
 import RVOwnerLogin from './components/RVOwnerLogin';
 import LandOwnerRegister from "./components/LandOwnerRegister";
-import { RVOwnerRegister } from "./components/RVOwnerRegister";
+import RVOwnerRegister from "./components/RVOwnerRegister";
 
 function App() {
   return (

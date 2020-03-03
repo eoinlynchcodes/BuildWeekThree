@@ -1,18 +1,24 @@
 import * as actionTypes from './actionTypes';
 
-const initialOwnerState = {
+const initialREGState = {
     username: '',
     password: '',
-    is_land_owner: ''
+    is_land_owner: true
 }
-export function ownerLoginReducer(state = initialOwnerState, action){
-    switch(actionTypes.type){
-        case actionTypes.OWNER_LOGIN:
-        return {
-            ...state,
-            [action.payload.inputName]: action.payload.inputValue
-        };
+export function landOwnerRegisterReducer(state = initialREGState, action){
+    switch(action.type){
+        case actionTypes.LAND_OWNER_REGISTER:
+        return state.concat(action.payload)
         default: 
         return state;
+    }
+}
+
+export function rvOwnerRegisterReducer(state = initialREGState, action){
+    switch(action.type){
+        case actionTypes.RV_OWNER_REGISTER:
+            return state.concat(action.payload)
+            default:
+                return state;
     }
 }

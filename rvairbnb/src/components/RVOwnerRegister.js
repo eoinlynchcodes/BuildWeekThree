@@ -1,45 +1,63 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import * as actionCreators from '../stateManagement/actionCreators';
 
-export const RVOwnerRegister = () => {
 
-const [ renterRegister, setRenterRegister ] = useState({
-    ownerUsername: '',
-    ownerPassword: '',
- })
+function RVOwnerRegister(
+  changeInput,
+  postRVOwnerAccount,
+  rvOwnerRegFormValues
+  ){
 
- const onChange = event => {
-     setRenterRegister({
-         ...renterRegister,
-         [event.target.name]: event.target.value
-     });
- };
+    const onChange = event => {
+      changeInput({
+        inputName: event.target.value,
+        inputValue: event.target.value
+      });
+    }
 
- const handleSubmit = event => {
-     event.preventDefault();
- }
+    const onSubmit = event => {
+      event.preventDefault();
+      postRVOwnerAccount({
+        username: rvOwnerRegFormValues.username,
+        password: rvOwnerRegFormValues.password
+      })
+    }
 
 
   return (
     <div>
-      <form onSubmit={event => handleSubmit(event)}>
+      <form onSubmit={onSubmit}>
         Renter Register:
         <label>Username:</label>
         <input 
         placeholder="Username:" 
-        name="ownerUsername" 
+        name="username" 
         type="text"
-        onChange={event => onChange(event)}
+        value={rvOwnerRegFormValues.username}
+        onChange={onChange}
         />
 
         <label>Password:</label>
         <input 
         placeholder="Password:" 
-        name="ownerPassword" 
+        name="password" 
         type="text"
-        onChange={event => onChange(event)}
+        value={rvOwnerRegFormValues.password}
+        onChange={onChange}
         />
         <button type="submit">Register</button>
       </form>
     </div>
   );
 };
+
+function mapStateToProps(state){
+  return{
+    rvOwnerRegFormValues: state.rvOwnerRegFormValues
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  actionCreators) (RVOwnerRegister);

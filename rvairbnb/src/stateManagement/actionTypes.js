@@ -1,10 +1,10 @@
 // Owner state management
-export const OWNER_REGISTER = 'OWNER_REGISTER';
-export const OWNER_LOGIN = 'OWNER_LOGIN';
+export const LAND_OWNER_REGISTER = 'OWNER_REGISTER';
+export const LAND_OWNER_LOGIN = 'OWNER_LOGIN';
 
 // Renter state management
-export const RENTER_REGISTER = 'RENTER_REGISTER';
-export const RENTER_LOGIN = 'RENTER_LOGIN';
+export const RV_OWNER_REGISTER = 'RENTER_REGISTER';
+export const RV_OWNER_LOGIN = 'RENTER_LOGIN';
 
 // Listing state management
 export const GET_LISTINGS = 'GET_LISTINGS';
@@ -15,6 +15,8 @@ export const PUT_LISTINGS = 'PUT_LISTINGS';
 
 // Errors
 
+// CHANGE_HANDLERS
+export const CHANGE_INPUT = 'CHANGE_INPUT';
 
 // STRETCH - Reservations
 
