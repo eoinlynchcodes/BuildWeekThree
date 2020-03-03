@@ -9,8 +9,7 @@ function LandOwnerRegister({
   loRegFormValues
   }) {
 
-    const history = useHistory();
-
+  const history = useHistory();
   const onSubmit = event => {
     event.preventDefault();
     postLandOwnerAccount({
