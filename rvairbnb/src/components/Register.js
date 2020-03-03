@@ -2,7 +2,7 @@ import React from "react";
 import "../index.css";
 import { Link, Route } from "react-router-dom";
 import LandOwnerRegister from "./LandOwnerRegister";
-import RenterRegister from "./RenterRegister";
+import { RenterRegister } from "./RenterRegister";
 
 export default function Register() {
   return (
@@ -14,7 +14,7 @@ export default function Register() {
       <Link to="/landOwnerRegister">I own Land</Link>
       <br></br>
       <br></br>
-      <Link to="/renterRegister">I want to rent a space for my RV</Link>
+      <Link to="/renterRegister">I own an RV</Link>
     </div>
   );
 }
