@@ -1,16 +1,13 @@
 import React from "react";
 import "../index.css";
-import { Route, Link } from "react-router-dom";
-import RenterLogin from './RenterLogin';
-import LandOwnerLogin from './LandOwnerLogin';
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
     <div>
       <h1>Login:</h1>
       <div>
-        <Route path="/landOwnerLogin" component={LandOwnerLogin} />
-        <Route path="/renterLogin" component={RenterLogin} />
+        
 
         <Link to="/landOwnerLogin">I own Land</Link>
         <br></br>
