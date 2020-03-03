@@ -8,10 +8,13 @@ import { landOwnerRegisterReducer } from "./stateManagement/reducers";
 import { rvOwnerRegisterReducer } from './stateManagement/reducers';
 import thunk from "redux-thunk";
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import { changeInput } from "./stateManagement/actionCreators";
+import { regFormChangeHandlerReducer } from './stateManagement/reducers';
 
 const combinedReducer = combineReducers({
     loRegFormValues: landOwnerRegisterReducer,
-    rvOwnerRegFormValues: rvOwnerRegisterReducer
+    rvOwnerRegFormValues: rvOwnerRegisterReducer,
+    // changeInput: regFormChangeHandlerReducer
 });
 
 const store = createStore(

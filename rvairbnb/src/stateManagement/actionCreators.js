@@ -4,7 +4,7 @@ import axios from 'axios';
 const baseAPI = 'https://rvairbnb.herokuapp.com';
 
 export const postLandOwnerAccount = ({ username, password, is_land_owner }) => dispatch => {
-    axios.post(`${baseAPI}/api/auth/register`, {
+    return axios.post(`${baseAPI}/api/auth/register`, {
         username, 
         password, 
         is_land_owner
@@ -14,6 +14,7 @@ export const postLandOwnerAccount = ({ username, password, is_land_owner }) => d
             type: actionTypes.LAND_OWNER_REGISTER,
             payload: response.data
         });
+
     })
     .catch((error) => {
        // could put a dispath here and manage errors correctly.
@@ -35,9 +36,9 @@ export const postRVOwnerAccount = ({ username, password, is_land_owner }) => dis
     })
 }
 
-export function changeInput({inputName, inputValue}){
-    return{
+export const changeInput = ({inputName, inputValue}) => dispatch =>{
+        dispatch({
         type: actionTypes.CHANGE_INPUT,
         payload: { inputName, inputValue}
-    }
+        })
 }

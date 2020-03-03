@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import * as actionCreators from '../stateManagement/actionCreators';
+import { useHistory } from 'react-router-dom';
 
 function LandOwnerRegister({
   postLandOwnerAccount,
@@ -8,15 +9,24 @@ function LandOwnerRegister({
   loRegFormValues
   }) {
 
+    const history = useHistory();
+
   const onSubmit = event => {
     event.preventDefault();
     postLandOwnerAccount({
-      username: 'eoinlynch',
-      // loRegFormValues.username,
-      password: 'password' ,
-      // loRegFormValues.password,
+      username: loRegFormValues.username,
+      password: loRegFormValues.password,
       is_land_owner: true
-    });
+    })
+    .then(response => {
+      if(response.status === 200){
+        history.push('/login');
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      history.push('/home');
+    })
   }
 
   const onChange = event => {
@@ -54,9 +64,8 @@ function LandOwnerRegister({
 }
 
 function mapStateToProps(state){
-  console.log(state);
   return {
-    loRegFormValues: state.loRegFormValues
+    loRegFormValues: state.loRegFormValues,
   }
 }
 
