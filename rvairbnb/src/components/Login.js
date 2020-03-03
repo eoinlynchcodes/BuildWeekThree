@@ -12,7 +12,7 @@ export default function Login() {
         <Link to="/landOwnerLogin">I own Land</Link>
         <br></br>
         <br></br>
-        <Link to="/renterLogin">I own an RV</Link>
+        <Link to="/rvOwnerLogin">I own an RV</Link>
       </div>
     </div>
   );

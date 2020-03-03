@@ -5,9 +5,9 @@ import Login from "./components/Login";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import LandOwnerLogin from './components/LandOwnerLogin';
-import RenterLogin from './components/RenterLogin';
+import RVOwnerLogin from './components/RVOwnerLogin';
 import LandOwnerRegister from "./components/LandOwnerRegister";
-import { RenterRegister } from "./components/RenterRegister";
+import { RVOwnerRegister } from "./components/RVOwnerRegister";
 
 function App() {
   return (
@@ -16,9 +16,9 @@ function App() {
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/landOwnerLogin" component={LandOwnerLogin} />
-      <Route exact path="/renterLogin" component={RenterLogin} />
+      <Route exact path="/rvOwnerLogin" component={RVOwnerLogin} />
       <Route exact path="/landOwnerRegister" component={LandOwnerRegister}/>
-      <Route exact path="/renterRegister" component={RenterRegister}/>
+      <Route exact path="/rvOwnerRegister" component={RVOwnerRegister}/>
     </div>
   );
 }

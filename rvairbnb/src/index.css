@@ -5,15 +5,3 @@ form{
     display: flex;
     flex-direction: column;
 }
-
-.formsSideBySide{
-    display: flex;
-    margin: 0 auto;
-    padding: 5rem;
-}
-
-.formsSideBySide form{
-    padding: 5rem;
-    justify-content: center;
-    align-items: center;
-}

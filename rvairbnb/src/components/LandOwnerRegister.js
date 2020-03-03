@@ -6,7 +6,7 @@ export default function LandOwnerRegister() {
   return (
     <div>
       <form>
-        Land Owner Registration:
+        <h1>Land Owner Register</h1>
         <label>Username:</label>
         <input 
         placeholder="Username:" 

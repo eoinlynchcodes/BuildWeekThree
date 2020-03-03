@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function RenterDashboard(){
+export default function RVOwnerDashboard(){
 
     return(
         <div>

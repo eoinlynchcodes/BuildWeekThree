@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const RenterRegister = () => {
+export const RVOwnerRegister = () => {
 
 const [ renterRegister, setRenterRegister ] = useState({
     ownerUsername: '',

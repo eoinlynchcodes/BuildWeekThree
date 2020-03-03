@@ -9,7 +9,7 @@ export default function Register() {
       <Link to="/landOwnerRegister">I own Land</Link>
       <br></br>
       <br></br>
-      <Link to="/renterRegister">I own an RV</Link>
+      <Link to="/rvOwnerRegister">I own an RV</Link>
     </div>
   );
 }
