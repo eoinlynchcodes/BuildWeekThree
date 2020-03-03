@@ -1,15 +1,25 @@
 import React from "react";
 
-export const LandOwnerRegister = () => {
-    
+export default function LandOwnerRegister() {
+
+
   return (
-    <form>
-      Land Owner Registration:
-      <label>Username:</label>
-      <input placeholder="Username:" name="ownerUsername" type="text" />
-      <label>Password:</label>
-      <input placeholder="Password:" name="ownerPassword" type="text" />
-      <button type="submit">Register</button>
-    </form>
+    <div>
+      <form>
+        Land Owner Registration:
+        <label>Username:</label>
+        <input 
+        placeholder="Username:" 
+        name="ownerUsername"        
+        type="text"/>
+
+        <label>Password:</label>
+        <input 
+        placeholder="Password:" 
+        name="ownerPassword" 
+        type="text"/>
+        <button type="submit">Register</button>
+      </form>
+    </div>
   );
 }

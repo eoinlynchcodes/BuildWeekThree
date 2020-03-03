@@ -5,7 +5,7 @@ export default function Login(){
     return (
         <div>
         <h1>Login:</h1>
-        <div class="formsSideBySide">
+        <div className="formsSideBySide">
           <form>
             Land Owner Login:
             <label>Username:</label>
