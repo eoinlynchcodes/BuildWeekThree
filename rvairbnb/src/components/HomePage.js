@@ -14,6 +14,7 @@ export default function HomePage() {
         <NavLink class="homeNavLink" to="/login">
           Login
         </NavLink>
+
       </nav>
       <img src={homepageImage} />
     </div>
