@@ -23,7 +23,7 @@ export default function AddListingForm(){
         .then(response => {
             console.log(response.data);
             setAddListing(response.data)
-            history.push('/yoyoyo');
+            history.push('/seeAllListings');
         })
         .catch(error => {
             console.log(error);

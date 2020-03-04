@@ -63,3 +63,13 @@ export const changeInput = ({inputName, inputValue}) => dispatch =>{
         payload: { inputName, inputValue}
         })
 }
+
+export const getListings = ({ is, owner_id, location, description, price_per_day, photo }) => dispatch => {
+    axios.get(`${baseAPI}/api/listings`)
+    .then(response => {
+        console.log(response);
+    })
+    .catch(error => {
+        console.log(error);
+    })
+}

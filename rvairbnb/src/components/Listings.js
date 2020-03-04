@@ -1,24 +1,27 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
 
-export default function Listings(){
+function Listings({
+    getListings
+}){
 
-    // const baseAPI = 'https://rvairbnb.herokuapp.com';
-
-    // useEffect(() => {
-
-    //     // axios.get(`${baseURL}/api/listings`)
-    //     .then(response => {
-    //         console.log(response);
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     })
-    // }, [])
+    useEffect(() => {
+        getListings();
+    }, [getListings])
 
     return(
         <div>
-            
+
+
         </div>
     )
 }
+
+function mapStateToProps(state){
+    console.log(state);
+
+}
+
+export default connect(
+    mapStateToProps,
+    actionCreato
+)

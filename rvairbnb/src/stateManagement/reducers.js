@@ -30,3 +30,22 @@ export function rvOwnerRegisterReducer(state = initialREGState, action) {
       return state;
   }
 }
+
+const initialListingState = {
+  id: null,
+  owner_id: null,
+  location: "",
+  description: "",
+  price_per_day: null,
+  photo: ""
+}
+
+export function listingsReducer(state = initialListingState, action){
+
+  switch(action.type){
+    case actionTypes.GET_LISTINGS:
+      return action.payload;
+      default:
+        return state;
+  }
+}

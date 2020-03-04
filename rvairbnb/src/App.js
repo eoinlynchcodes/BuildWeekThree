@@ -9,7 +9,6 @@ import RVOwnerLogin from './components/RVOwnerLogin';
 import LandOwnerRegister from "./components/LandOwnerRegister";
 import RVOwnerRegister from "./components/RVOwnerRegister";
 import landOwnerDashboard from './components/LandOwnerDashboard';
-import Listings from './components/Listings';
 
 function App() {
   return (
@@ -22,7 +21,7 @@ function App() {
       <Route exact path="/landOwnerRegister" component={LandOwnerRegister}/>
       <Route exact path="/rvOwnerRegister" component={RVOwnerRegister}/>
       <Route exact path="/landOwnerDashboard" component={landOwnerDashboard} />
-      <Route exact path="/seeAllListings" component={Listings}/>
+      
    </div>
   );
 }
