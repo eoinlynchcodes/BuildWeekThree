@@ -4,9 +4,9 @@ import * as actionCreators from '../stateManagement/actionCreators';
 import { useHistory } from 'react-router-dom';
 
 function LandOwnerLogin({
+postLandOwnerLogin,
 loLoginFormValues,
 changeInput, 
-postLandOwnerLogin
 }) {
 
   const history = useHistory();
@@ -15,9 +15,11 @@ postLandOwnerLogin
     postLandOwnerLogin({
       username: loLoginFormValues.username,
       password: loLoginFormValues.password,
+      is_land_owner: true
     })
     .then(response => {
       console.log(response);
+      // localStorage.setItem('token', response)
       history.push('/landOwnerDashboard');
     })
     .catch(error => {

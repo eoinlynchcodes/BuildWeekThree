@@ -1,5 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
+import withAuth from '../axiosWithAuth';
+import { useHistory } from 'react-router-dom';
 
 const baseAPI = 'https://rvairbnb.herokuapp.com';
 
@@ -21,12 +23,16 @@ export const postLandOwnerAccount = ({ username, password, is_land_owner }) => d
     })
 }
 
-export const postLandOwnerLogin = ({ username, password}) => dispatch => {
-    axios.post(`${baseAPI}/api/aith/login`, {
+export const postLandOwnerLogin = ({ username, password, is_land_owner}) => dispatch => {
+    return axios.post(`${baseAPI}/api/auth/login`, {
         username,
         password,
+        is_land_owner
     })
     .then(response => {
+        console.log(response);
+        // debugger
+        localStorage.setItem('token', response.data.token)
         dispatch({
             type: actionTypes.LAND_OWNER_LOGIN,
             payload: response.data
