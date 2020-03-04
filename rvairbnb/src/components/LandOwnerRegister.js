@@ -18,9 +18,7 @@ function LandOwnerRegister({
       is_land_owner: true
     })
     .then(response => {
-      if(response.status === 200){
-        history.push('/login');
-      }
+        history.push('/landOwnerLogin');
     })
     .catch(error => {
       console.log(error);

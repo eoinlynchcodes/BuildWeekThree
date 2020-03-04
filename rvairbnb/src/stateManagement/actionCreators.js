@@ -14,11 +14,26 @@ export const postLandOwnerAccount = ({ username, password, is_land_owner }) => d
             type: actionTypes.LAND_OWNER_REGISTER,
             payload: response.data
         });
-
     })
     .catch((error) => {
        // could put a dispath here and manage errors correctly.
        console.log(error);
+    })
+}
+
+export const postLandOwnerLogin = ({ username, password}) => dispatch => {
+    axios.post(`${baseAPI}/api/aith/login`, {
+        username,
+        password,
+    })
+    .then(response => {
+        dispatch({
+            type: actionTypes.LAND_OWNER_LOGIN,
+            payload: response.data
+        });
+    })
+    .catch(error => {
+        console.log(error);
     })
 }
 
