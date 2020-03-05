@@ -18,7 +18,6 @@ changeInput,
       is_land_owner: true
     })
     .then(response => {
-      console.log(response);
       // localStorage.setItem('token', response)
       history.push('/landOwnerDashboard');
     })
@@ -33,8 +32,6 @@ changeInput,
       inputName: event.target.name,
       inputValue: event.target.value
     });
-    console.log(loLoginFormValues.username);
-    console.log(loLoginFormValues.password);
   }
 
   return (

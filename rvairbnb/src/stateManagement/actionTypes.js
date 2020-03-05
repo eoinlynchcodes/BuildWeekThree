@@ -8,10 +8,10 @@ export const RV_OWNER_LOGIN = 'RENTER_LOGIN';
 
 // Listing state management
 export const GET_LISTINGS = 'GET_LISTINGS';
-export const GET_LISTINGS_BY_ID = 'GET_LISTINGS_BY_ID';
-export const POST_LISTINGS = 'POST_LISTINGS';
-export const DELETE_LISTINGS = 'DELETE_LISTINGS';
-export const PUT_LISTINGS = 'PUT_LISTINGS';
+export const GET_LISTING_BY_ID = 'GET_LISTING_BY_ID';
+export const POST_LISTING = 'POST_LISTING';
+export const DELETE_LISTING = 'DELETE_LISTING';
+export const PUT_LISTING = 'PUT_LISTING';
 
 // Errors
 

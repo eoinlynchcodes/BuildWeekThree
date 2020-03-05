@@ -1,26 +1,35 @@
-import React from "react";
-import { connect } from "react-redux";
-import * as actionCreators from '../stateManagement/actionCreators';
+import React, { useState } from "react";
+import axios from "axios";
+import { useHistory } from 'react-router-dom';
+import withAuth from "../axiosWithAuth";
 
+export default function RVOwnerRegister(){
 
-function RVOwnerRegister(
-  changeInput,
-  postRVOwnerAccount,
-  rvOwnerRegFormValues
-  ){
+  const [ rvOwnerData, setRVOwnerData ] = useState({
+    username: '',
+    password: '',
+    is_land_owner: false
+  });
 
+  const history = useHistory();
+    const baseAPI = 'https://rvairbnb.herokuapp.com';
     const onChange = event => {
-      changeInput({
-        inputName: event.target.value,
-        inputValue: event.target.value
+      setRVOwnerData({
+        ...rvOwnerData,
+        [event.target.name]: event.target.value
       });
-    }
+    };
 
     const onSubmit = event => {
       event.preventDefault();
-      postRVOwnerAccount({
-        username: rvOwnerRegFormValues.username,
-        password: rvOwnerRegFormValues.password
+      axios.post(`${baseAPI}/api/auth/register`)
+      .then(response => {
+        console.log(response.data);
+        setRVOwnerData(response.data);
+        history.push('/rvOwnerDashboard');
+      })
+      .catch(error => {
+        console.log(error);
       })
     }
 
@@ -34,7 +43,7 @@ function RVOwnerRegister(
         placeholder="Username:" 
         name="username" 
         type="text"
-        value={rvOwnerRegFormValues.username}
+        value={rvOwnerData.username}
         onChange={onChange}
         />
 
@@ -43,7 +52,7 @@ function RVOwnerRegister(
         placeholder="Password:" 
         name="password" 
         type="text"
-        value={rvOwnerRegFormValues.password}
+        value={rvOwnerData.password}
         onChange={onChange}
         />
         <button type="submit">Register</button>
@@ -51,13 +60,3 @@ function RVOwnerRegister(
     </div>
   );
 };
-
-function mapStateToProps(state){
-  return{
-    rvOwnerRegFormValues: state.rvOwnerRegFormValues
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  actionCreators) (RVOwnerRegister);

@@ -4,8 +4,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import { landOwnerRegisterAndLoginReducer } from "./stateManagement/reducers";
-import { rvOwnerRegisterReducer, listingsReducer } from './stateManagement/reducers';
+import { landOwnerRegisterAndLoginReducer, rvOwnerRegisterReducer, listingsReducer } from './stateManagement/reducers';
 import thunk from "redux-thunk";
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 
@@ -13,7 +12,7 @@ const combinedReducer = combineReducers({
     loRegFormValues: landOwnerRegisterAndLoginReducer,
     loLoginFormValues : landOwnerRegisterAndLoginReducer,
     rvOwnerRegFormValues: rvOwnerRegisterReducer,
-    fullListData: listingsReducer
+    listingsReducerData: listingsReducer
 });
 
 const store = createStore(

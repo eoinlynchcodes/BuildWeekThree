@@ -10,8 +10,10 @@ import LandOwnerRegister from "./components/LandOwnerRegister";
 import RVOwnerRegister from "./components/RVOwnerRegister";
 import landOwnerDashboard from './components/LandOwnerDashboard';
 import Listings from './components/Listings';
+import EditForm from "./components/EditForm";
 
 function App() {
+
   return (
     <div>
       <Route exact path="/home" component={HomePage} />
@@ -23,6 +25,9 @@ function App() {
       <Route exact path="/rvOwnerRegister" component={RVOwnerRegister}/>
       <Route exact path="/landOwnerDashboard" component={landOwnerDashboard} />
       <Route exact path="/seeAllListings" component={Listings}/>
+      <Route exact path="/editForm/:listingID">
+        <EditForm  />
+      </Route>
    </div>
   );
 }

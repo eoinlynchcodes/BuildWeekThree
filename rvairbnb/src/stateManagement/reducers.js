@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
 
 const initialREGState = {
+  id: "",
   username: "",
   password: "",
   is_land_owner: true
@@ -10,7 +11,13 @@ export function landOwnerRegisterAndLoginReducer(state = initialREGState, action
     case actionTypes.LAND_OWNER_REGISTER:
       return initialREGState;
       case actionTypes.LAND_OWNER_LOGIN:
-          return initialREGState;
+          return {
+            ...state,
+            id: action.payload.id,
+            username: "",
+            password: "",
+            is_land_owner: true
+          };
     case actionTypes.CHANGE_INPUT:
       return {
         ...state,
@@ -32,19 +39,20 @@ export function rvOwnerRegisterReducer(state = initialREGState, action) {
 }
 
 const initialListingState = {
-  id: null,
-  owner_id: null,
-  location: "",
-  description: "",
-  price_per_day: null,
-  photo: ""
-}
+  listings: []
+};
 
 export function listingsReducer(state = initialListingState, action){
-
   switch(action.type){
     case actionTypes.GET_LISTINGS:
-      return action.payload;
+      return {
+      ...state, 
+      listings: action.payload
+      };
+      case actionTypes.PUT_LISTING:
+        return state;
+      case actionTypes.DELETE_LISTING:
+        return state;
       default:
         return state;
   }
