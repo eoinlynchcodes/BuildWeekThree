@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../stateManagement/actionCreators";
-import { Route } from "react-router-dom";
 import Listings from './Listings';
 import { listingsReducer } from "../stateManagement/reducers";
 
@@ -52,7 +51,7 @@ name="price_per_day"
 placeholder="Photo:"
 name="photo"
 />
-
+<button>Edit</button>
 </form>
   </div>
   );

@@ -1,7 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import withAuth from "../axiosWithAuth";
-import { useHistory } from "react-router-dom";
 
 const baseAPI = "https://rvairbnb.herokuapp.com";
 

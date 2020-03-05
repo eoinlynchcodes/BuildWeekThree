@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import withAuth from "../axiosWithAuth";
+import React, { useEffect } from "react";
 import { CardForListItem } from "./CardForListItem";
 import { connect } from "react-redux";
 import * as actionCreators from '../stateManagement/actionCreators';
 
 function Listings({ loLoginFormValues, listingsReducerData, getListings }) {
 
-  const baseAPI = "https://rvairbnb.herokuapp.com";
   const id = localStorage.getItem("user_id");
 
   useEffect(() => {
     getListings();
-  }, []);
+  }, [getListings]);
 
   const filteredListings = listingsReducerData.filter(
     item => item.owner_id === Number(id)
