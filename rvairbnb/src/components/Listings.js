@@ -6,17 +6,13 @@ import { connect } from "react-redux";
 import * as actionCreators from '../stateManagement/actionCreators';
 
 function Listings({ loLoginFormValues, listingsReducerData, getListings }) {
-  console.log(listingsReducerData);
 
   const baseAPI = "https://rvairbnb.herokuapp.com";
   const id = localStorage.getItem("user_id");
 
   useEffect(() => {
     getListings();
-
   }, []);
-
-
 
   const filteredListings = listingsReducerData.filter(
     item => item.owner_id === Number(id)

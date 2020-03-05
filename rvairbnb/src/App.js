@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import "./App.css";
@@ -8,11 +8,22 @@ import LandOwnerLogin from './components/LandOwnerLogin';
 import RVOwnerLogin from './components/RVOwnerLogin';
 import LandOwnerRegister from "./components/LandOwnerRegister";
 import RVOwnerRegister from "./components/RVOwnerRegister";
-import landOwnerDashboard from './components/LandOwnerDashboard';
+import LandOwnerDashboard from './components/LandOwnerDashboard';
 import Listings from './components/Listings';
 import EditForm from "./components/EditForm";
 
 function App() {
+
+  function ProtectedRoute({ children, ...rest}){
+    const doesTokenExist = localStorage.getItem('token')
+    return(
+      <Route {...rest}>
+        {
+          doesTokenExist ? children : <Redirect to="/home" />
+        }
+      </Route>
+    )
+  }
 
   return (
     <div>
@@ -23,7 +34,10 @@ function App() {
       <Route exact path="/rvOwnerLogin" component={RVOwnerLogin} />
       <Route exact path="/landOwnerRegister" component={LandOwnerRegister}/>
       <Route exact path="/rvOwnerRegister" component={RVOwnerRegister}/>
-      <Route exact path="/landOwnerDashboard" component={landOwnerDashboard} />
+      <ProtectedRoute path='/landOwnerDashboard'>
+        <LandOwnerDashboard/>
+      </ProtectedRoute>
+      {/* <Route exact path="/landOwnerDashboard" component={landOwnerDashboard} /> */}
       <Route exact path="/seeAllListings" component={Listings}/>
       <Route exact path="/editForm/:listingID">
         <EditForm  />

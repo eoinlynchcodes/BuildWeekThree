@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { connect } from "react-redux";
+import * as actionCreators from '../stateManagement/actionCreators';
 
-
-export default function EditForm() {
+function EditForm({
+  listingsReducerData,
+  getListings,
+}) {
 
     const { listingID } = useParams();
  
     console.log(listingID);
+
+
+    useEffect(() => {
+      getListings();
+    }, [])
 
     
 
@@ -42,3 +51,15 @@ const [ inputs, setInputs ] = useState()
     </div>
   );
 }
+
+
+function mapStateToProps(state){
+  return{
+    listingsReducerData: state.listingsReducerData.listings
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(EditForm);
