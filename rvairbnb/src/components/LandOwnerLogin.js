@@ -23,7 +23,6 @@ changeInput,
     })
     .catch(error => {
       console.log(error);
-      history.push('/home');
     })
   }
 

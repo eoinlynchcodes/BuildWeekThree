@@ -22,7 +22,7 @@ function LandOwnerRegister({
     })
     .catch(error => {
       console.log(error);
-      history.push('/home');
+      // history.push('/home');
     })
   }
 

@@ -14,12 +14,12 @@ import EditForm from "./components/EditForm";
 
 function App() {
 
-  function ProtectedRoute({ children, ...rest}){
+  function ProtectedLoginRoute({ children, ...rest}){
     const doesTokenExist = localStorage.getItem('token')
     return(
       <Route {...rest}>
         {
-          doesTokenExist ? children : <Redirect to="/home" />
+          doesTokenExist ? children : <Redirect to="/away" />
         }
       </Route>
     )
@@ -34,14 +34,14 @@ function App() {
       <Route exact path="/rvOwnerLogin" component={RVOwnerLogin} />
       <Route exact path="/landOwnerRegister" component={LandOwnerRegister}/>
       <Route exact path="/rvOwnerRegister" component={RVOwnerRegister}/>
-      <ProtectedRoute path='/landOwnerDashboard'>
+      {/* <Route exact path="/landOwnerDashboard" component={LandOwnerDashboard} /> */}
+      <ProtectedLoginRoute path="/landOwnerDashboard">
         <LandOwnerDashboard/>
-      </ProtectedRoute>
-      {/* <Route exact path="/landOwnerDashboard" component={landOwnerDashboard} /> */}
+      </ProtectedLoginRoute>
       <Route exact path="/seeAllListings" component={Listings}/>
-      <Route exact path="/editForm/:listingID">
+      <ProtectedLoginRoute exact path="/editForm/:listingID">
         <EditForm  />
-      </Route>
+      </ProtectedLoginRoute>
    </div>
   );
 }

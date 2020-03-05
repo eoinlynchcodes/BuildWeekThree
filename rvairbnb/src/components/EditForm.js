@@ -1,65 +1,67 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actionCreators from '../stateManagement/actionCreators';
+import * as actionCreators from "../stateManagement/actionCreators";
+import { Route } from "react-router-dom";
+import Listings from './Listings';
+import { listingsReducer } from "../stateManagement/reducers";
 
-function EditForm({
-  listingsReducerData,
-  getListings,
-}) {
+function EditForm({ listingsReducerData, getListings }) {
 
-    const { listingID } = useParams();
- 
-    console.log(listingID);
+  const baseAPI = "https://rvairbnb.herokuapp.com";
+  const { listingID } = useParams({});
 
+  console.log(listingID);
 
-    useEffect(() => {
-      getListings();
-    }, [])
+  useEffect(() => {
+    getListings();
+  }, []);
+  
+  console.log(listingsReducerData);
 
-    
+  const data = listingsReducerData.find(item => item.id === Number(listingID));
+  console.log(data);
 
-const [ inputs, setInputs ] = useState()
+  return( 
+  <div>
+{      console.log(data)
+}
 
-  return (
-    <div>
-      {/* <form>
-        Form to Edit data.
-        <label>Location</label>
-        <input
-          placeholder="Location"
-          name="location"
-        //   onChange={onChange}
-          // value={dataForCard.location}
-        />
-        <label>Description:</label>
-        <input
-          placeholder="Description:"
-          name="description"
-          onChange={onChange}
-          // value={dataForCard.description}
-        />
-        <label>Price:</label>
-        <input
-          placeholder="Price:"
-          name="price_per_day"
-          onChange={onChange}
-          // value={dataForCard.price_per_day}
-        />
-        <Button onClick={editThis}>Edit</Button>
-      </form> */}
-    </div>
+<form> Edit this listing. 
+  <label>Location:</label>
+  <input 
+  placeholder="Location"
+  name="location"
+  // value={data.location}
+  />
+
+<label>Description:</label>
+<input 
+placeholder="Description"
+name="description"
+/>
+
+<label>Price Per Day:</label>
+<input 
+placeholder="Price Per Day"
+name="price_per_day"
+/>
+
+<label>Photo</label>
+<input 
+placeholder="Photo:"
+name="photo"
+/>
+
+</form>
+  </div>
   );
 }
 
-
-function mapStateToProps(state){
-  return{
+function mapStateToProps(state) {
+  return {
     listingsReducerData: state.listingsReducerData.listings
-  }
+  };
 }
 
-export default connect(
-  mapStateToProps,
-  actionCreators
-)(EditForm);
+export default connect(mapStateToProps, actionCreators)(EditForm);
