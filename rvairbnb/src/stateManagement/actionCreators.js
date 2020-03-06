@@ -93,13 +93,27 @@ export const getListings = () => dispatch => {
     });
 };
 
-export const deleteListing = ({ id }) => dispatch => {
-  axios
+export const deleteListing = ( id ) => dispatch => {
+  withAuth()
     .delete(`${baseAPI}/api/listings/${id}`)
     .then(response => {
-      console.log(response);
+      dispatch({
+        type: actionTypes.DELETE_LISTING,
+        payload: id
+      })
+      // getListings();
     })
     .catch(error => {
       console.log(error);
     });
+};
+
+export const editForm = ( id, editedListing ) => dispatch => {
+  withAuth().put(`${baseAPI}/api/listings/${id}`, editedListing)
+  .then(response => {
+    console.log(response);
+  })
+  .catch(error => {
+    console.log(error);
+  })
 };

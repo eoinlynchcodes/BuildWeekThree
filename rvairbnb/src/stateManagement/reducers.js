@@ -52,7 +52,10 @@ export function listingsReducer(state = initialListingState, action){
       case actionTypes.PUT_LISTING:
         return state;
       case actionTypes.DELETE_LISTING:
-        return state;
+        return {
+          ...state,
+          listings: state.listings.filter(item => item.id !== action.payload )
+        };
       default:
         return state;
   }

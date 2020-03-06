@@ -40,7 +40,7 @@ function App() {
       </ProtectedLoginRoute>
       <Route exact path="/seeAllListings" component={Listings}/>
       <ProtectedLoginRoute exact path="/editForm/:listingID">
-        <EditForm  />
+        <EditForm />
       </ProtectedLoginRoute>
    </div>
   );
