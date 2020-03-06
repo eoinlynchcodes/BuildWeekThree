@@ -5,3 +5,25 @@ form{
     display: flex;
     flex-direction: column;
 }
+
+article{
+    width: 50%;
+    margin: 0 auto;
+    border: solid black;
+    padding: 50px 50px;
+}
+
+footer{
+    background-color: #333;
+    height: 5rem;
+    color: red;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    width: 50%;
+    margin: 0 auto;
+    border: solid black;
+    padding: 50px 50px;
+}
