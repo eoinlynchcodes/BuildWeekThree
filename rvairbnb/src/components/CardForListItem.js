@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from 'axios';
@@ -37,6 +38,18 @@ const CardForListItem = (props ) => {
 
   return (
     <div>
+         <nav>
+      <NavLink className="homeNavLink" to='/'>
+          Home
+        </NavLink>
+
+      <NavLink className="homeNavLink" to="/landOwnerDashboard">
+          Add Another Listing
+        </NavLink>
+        <NavLink className="homeNavLink" to="/logout">
+          Logout
+        </NavLink>
+      </nav>
       <Card>
         <h1>{dataForCard.location}</h1>
         <h1>{dataForCard.description}</h1>

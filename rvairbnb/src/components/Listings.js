@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import CardForListItem from "./CardForListItem";
 import { connect } from "react-redux";
+import { NavLink } from 'react-router-dom';
 import * as actionCreators from '../stateManagement/actionCreators';
+
 
 function Listings({ loLoginFormValues, listingsReducerData, getListings }) {
 
